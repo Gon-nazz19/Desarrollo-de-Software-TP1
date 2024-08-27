@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="Habilidades y herramientas" content="Son todas las habilidades y herramientas que poseo">
-    <title>Habilidades</title>
+    <meta name="Formulario de Contacto" content="Presenta un formulario para dudas, consultas y/o preguntas">
+    <title>Formulario de contacto</title>
     <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=DM+Serif+Text:ital@0;1">
-    <link rel="stylesheet" href="../CSS/Styles_general.css">
+    <link rel="stylesheet" href="../CSS/Styles_Formulario_de_Contacto.css">
 </head>
 <body>
-
-    <header> 
+    <header>
 
         <div class="Perfil">
             <img id='Foto_Perfil' src="../Imágenes/Foto Perfil.jpg" alt="Foto de Gonzalo Nazzetta">
@@ -28,41 +27,25 @@
                 </ul>
             </nav>
         </div>
+
     </header>
 
-    <h1>Habilidades que poseo y herramientas que manejo</h1>
+    <div class="container-form">
+        <div class="info-form">
+          <h2>Contáctame</h2>
+          <p>En el caso de que necesites ayuda o simplemente quieras charlar, acá te dejo mi contacto.</p>
+          <p>+54 9 3564-624931</p> 
+          <p>nazzettagonzalo@gmail.com</p>
+          <p>Freyre-Córdoba</p>
+        </div>
+        <form action="https://formspree.io/f/xgvwdako" method="POST">
+          <input type="text" name="nombre" placeholder="Tu Nombre" class="campo" required>
+          <input type="email" name="email" placeholder="Tu Email" class="campo" required>
+          <textarea name="mensaje" placeholder="Tu Mensaje..." required></textarea>
+          <input type="submit" name="enviar" value="Enviar Mensaje" class="btn-enviar">
+        </form>
+      </div>
 
-        <p>
-            A lo largo de los años de carrera me especialicé en algunos lenguajes y herramientas
-            utilizadas en el campo de la ciencia de datos, así como en otras habilidades que pueden 
-            ser el inglés y el alemán.
-        </p>
-
-    <div>
-        <h2>Herramientas</h2>
-        <ul>
-            <li>Phyton</li>
-            <li>R</li>
-            <li>SQL</li>
-            <li>Power BI</li>
-            <li>Jupyter</li>
-            <li>Git Hub</li>
-            <li>Apache Hadoop</li>
-            <li>Apache Spark</li>
-            <li>Apache Spark</li>
-            <li>lenguajes para el FrontEnd y BackEnd</li>
-        </ul>
-    </div>
-
-    <div>
-        <h2>Habilidades</h2>
-        <ul>
-            <li>Conocimientos de inglés avanzado</li>
-            <li>Conocimientos de lemán avanzado</li>
-            <li>Capacidad de análisis para la resolución de problema</li>
-        </ul>
-    </div>
-    
     <footer>
         <div id="Red_Social">
             
@@ -82,11 +65,9 @@
 
         <div id="Contacto">
             <h3>Gonzalo Nicolás Nazzetta</h3>
-            <p>Suipacha 655</p>
-            <p>Freyre-Córdoba</p>
-            <p>+54 9 3564-624931</p>
         </div>
         
     </footer>
 </body>
+    
 </html>

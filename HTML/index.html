@@ -5,12 +5,15 @@
         <meta charset="UTF-8">
         <meta name="Perfil Gonzalo Nazzetta" content="Incluye una breve presentación presentación">
         <title>Perfil Gonzalo Nazzetta</title>
+        <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=DM+Serif+Text:ital@0;1">
         <link rel="stylesheet" href="../CSS/Styles_index.css">
     </head>
 
     <body>
 
         <header> 
+
+            
             <div class="Perfil">
                 <img id='Foto_Perfil' src="../Imágenes/Foto Perfil.jpg" alt="Foto de Gonzalo Nazzetta">
                 <h1><strong>Gonzalo Nazzetta</strong></h1>
@@ -24,7 +27,8 @@
                         <li><a href="../HTML/sobremí.html">Sobre Mí</a></li>
                         <li><a href="../HTML/Habilidades.html">Habilidades y Herramientas</a></li>
                         <li><a href="../HTML/Experiencia.html">Experiencia</a></li>
-                        <li><a href="../HTML/Proyectos.html">Proyectos</a></li>                    
+                        <li><a href="../HTML/Proyectos.html">Proyectos</a></li>     
+                        <li><a href="../HTML/Formulario_de_Contacto.html">Contáctame</a></li>               
                     </ul>
                 </nav>
             </div>
@@ -32,20 +36,22 @@
 
         <footer>
             <div id="Red_Social">
-                <a href="https://www.instagram.com/gon_nazz17?igsh=aGY4bXZwMW1vM3dy" target="_blank">
-                    <img class="Logo_Red_Social" src="../Imágenes/Instagram logo.png" alt="Instagram">
+                
+                <a href="https://github.com/Gon-nazz19" target="_blank">
+                    <img class="Logo_Red_Social" src="../Imágenes/GuitHub.png" alt="GuitHub">
                 </a>
-
+                
                 <a href="https://www.linkedin.com/in/gonzalo-nazzetta-b58430222/" target="_blank">
                     <img class="Logo_Red_Social" src="../Imágenes/Linkedin.png" alt="Linkedin">
                 </a>
 
-                <a href="https://github.com/Gon-nazz19" target="_blank">
-                    <img class="Logo_Red_Social" src="../Imágenes/GuitHub.png" alt="GuitHub">
+                <a href="https://www.instagram.com/gon_nazz17?igsh=aGY4bXZwMW1vM3dy" target="_blank">
+                    <img class="Logo_Red_Social" src="../Imágenes/Instagram logo.png" alt="Instagram">
                 </a>
+
             </div>
 
-            <div>
+            <div id="Contacto">
                 <h3>Gonzalo Nicolás Nazzetta</h3>
                 <p>Suipacha 655</p>
                 <p>Freyre-Córdoba</p>
@@ -54,4 +60,15 @@
             
         </footer>
     </body>
+    <script>
+        const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
+        function cambiaTema(ev){
+            if(ev.target.checked){
+                document.documentElement.setAttribute('tema', 'dark');
+            } else {
+                document.documentElement.setAttribute('tema', 'light');
+            }
+        }
+        colorSwitch.addEventListener('change', cambiaTema);
+    </script>
 </html>
