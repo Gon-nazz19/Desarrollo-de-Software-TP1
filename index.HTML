@@ -14,6 +14,27 @@
         <header> 
 
             
+        <div class="row">
+            <div class="col text-center">
+                <label id="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <script>
+            const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
+            function cambiaTema(ev){
+                if(ev.target.checked){
+                    document.documentElement.setAttribute('tema', 'light');
+                } else {
+                    document.documentElement.setAttribute('tema', 'dark');
+                }
+            }
+            colorSwitch.addEventListener('change', cambiaTema);
+        </script>
+
             <div class="Perfil">
                 <img id='Foto_Perfil' src="Imágenes/Foto Perfil.jpg" alt="Foto de Gonzalo Nazzetta">
                 <h1><strong>Gonzalo Nazzetta</strong></h1>
@@ -60,15 +81,4 @@
             
         </footer>
     </body>
-    <script>
-        const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
-        function cambiaTema(ev){
-            if(ev.target.checked){
-                document.documentElement.setAttribute('tema', 'dark');
-            } else {
-                document.documentElement.setAttribute('tema', 'light');
-            }
-        }
-        colorSwitch.addEventListener('change', cambiaTema);
-    </script>
 </html>
