@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-tema="dark">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Formulario de Contacto" content="Presenta un formulario para dudas, consultas y/o preguntas">
-    <title>Formulario de contacto</title>
+    <title>Formulario de contacto - Gonzalo Nazzetta</title>
     <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=DM+Serif+Text:ital@0;1">
     <link rel="stylesheet" href="../CSS/Styles_Formulario_de_Contacto.css">
 </head>
 <body>
     <header>
-
+        <div class="row">
+            <div class="col text-center">
+                <label id="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
         <div class="Perfil">
             <img id='Foto_Perfil' src="../Imágenes/Foto Perfil.jpg" alt="Foto de Gonzalo Nazzetta">
             <h1><strong>Gonzalo Nazzetta</strong></h1>
@@ -22,7 +30,6 @@
                     <li><a href="../HTML/sobremí.html">Sobre Mí</a></li>
                     <li><a href="../HTML/Habilidades.html">Habilidades y Herramientas</a></li>
                     <li><a href="../HTML/Experiencia.html">Experiencia</a></li>
-                    <li><a href="../HTML/Proyectos.html">Proyectos</a></li>
                     <li><a href="../HTML/Formulario_de_Contacto.html">Contáctame</a></li>                     
                 </ul>
             </nav>
@@ -41,7 +48,7 @@
         <form action="https://formspree.io/f/xgvwdako" method="POST">
           <input type="text" name="nombre" placeholder="Tu Nombre" class="campo" required>
           <input type="email" name="email" placeholder="Tu Email" class="campo" required>
-          <input type="Asunto" name="Asunto" placeholder="Asunto" class="campo" required>
+          <input type="text" name="Asunto" placeholder="Asunto" class="campo" required>
           <textarea name="mensaje" placeholder="Tu Mensaje..." required></textarea>
           <input type="submit" name="enviar" value="Enviar Mensaje" class="btn-enviar">
         </form>
@@ -69,6 +76,35 @@
         </div>
         
     </footer>
+    
+    <script>
+        const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
+        
+        function cargarTema() {
+            const temaGuardado = localStorage.getItem('tema');
+            if (temaGuardado === 'light') {
+                document.documentElement.setAttribute('data-tema', 'light');
+                colorSwitch.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-tema', 'dark');
+                colorSwitch.checked = false;
+            }
+        }
+        
+        function cambiaTema(ev){
+            if(ev.target.checked){
+                document.documentElement.setAttribute('data-tema', 'light');
+                localStorage.setItem('tema', 'light');
+            } else {
+                document.documentElement.setAttribute('data-tema', 'dark');
+                localStorage.setItem('tema', 'dark');
+            }
+        }
+        
+        cargarTema();
+        
+        colorSwitch.addEventListener('change', cambiaTema);
+    </script>
 </body>
     
 </html>

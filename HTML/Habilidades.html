@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-tema="dark">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Habilidades y herramientas" content="Son todas las habilidades y herramientas que poseo">
-    <title>Habilidades</title>
+    <title>Habilidades y Herramientas - Gonzalo Nazzetta</title>
     <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=DM+Serif+Text:ital@0;1">
     <link rel="stylesheet" href="../CSS/Styles_general.css">
 </head>
 <body>
-
     <header> 
-
+        <div class="row">
+            <div class="col text-center">
+                <label id="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        
         <div class="Perfil">
             <img id='Foto_Perfil' src="../Imágenes/Foto Perfil.jpg" alt="Foto de Gonzalo Nazzetta">
             <h1><strong>Gonzalo Nazzetta</strong></h1>
@@ -23,44 +31,43 @@
                     <li><a href="../HTML/sobremí.html">Sobre Mí</a></li>
                     <li><a href="../HTML/Habilidades.html">Habilidades y Herramientas</a></li>
                     <li><a href="../HTML/Experiencia.html">Experiencia</a></li>
-                    <li><a href="../HTML/Proyectos.html">Proyectos</a></li>
                     <li><a href="../HTML/Formulario_de_Contacto.html">Contáctame</a></li>                     
                 </ul>
             </nav>
         </div>
     </header>
 
-    <h1>Habilidades que poseo y herramientas que manejo</h1>
+    <main>
+        <h1>Habilidades que poseo y herramientas que manejo</h1>
 
         <p>
             A lo largo de los años de carrera me especialicé en algunos lenguajes y herramientas
             utilizadas en el campo de la ciencia de datos, así como en otras habilidades que pueden 
-            ser el inglés y el alemán.
+            ser el inglés y oratoria.
         </p>
+        <div>
+            <h2>Habilidades personales</h2>
+            <ul>
+                <li>Conocimientos de inglés intermedio</li>
+                <li>Interés por aprender nuevas habilidades y gran capacidad de comprensión.</li>
+                <li>Capacidad de análisis para la resolución de problema</li>
+                <li>Autodidacta a la hora de aprender nuevas habilidades.</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Herramientas técnicas</h2>
+            <ul>
+                <li>Python</li>
+                <li>R</li>
+                <li>SQL</li>
+                <li>Power BI</li>
+                <li>Git Hub</li>
+                <li>Conocimiento básico en lenguajes para el FrontEnd y BackEnd</li>
+            </ul>
+        </div>
 
-    <div>
-        <h2>Herramientas</h2>
-        <ul>
-            <li>Python</li>
-            <li>R</li>
-            <li>SQL</li>
-            <li>Power BI</li>
-            <li>Jupyter</li>
-            <li>Git Hub</li>
-            <li>Apache Hadoop</li>
-            <li>Apache Spark</li>
-            <li>lenguajes para el FrontEnd y BackEnd</li>
-        </ul>
-    </div>
-
-    <div>
-        <h2>Habilidades</h2>
-        <ul>
-            <li>Conocimientos de inglés avanzado</li>
-            <li>Conocimientos de lemán avanzado</li>
-            <li>Capacidad de análisis para la resolución de problema</li>
-        </ul>
-    </div>
+        
+    </main>
     
     <footer>
         <div id="Red_Social">
@@ -81,11 +88,39 @@
 
         <div id="Contacto">
             <h3>Gonzalo Nicolás Nazzetta</h3>
-            <p>Suipacha 655</p>
             <p>Freyre-Córdoba</p>
             <p>+54 9 3564-624931</p>
         </div>
         
     </footer>
+
+    <script>
+        const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
+        
+        function cargarTema() {
+            const temaGuardado = localStorage.getItem('tema');
+            if (temaGuardado === 'light') {
+                document.documentElement.setAttribute('data-tema', 'light');
+                colorSwitch.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-tema', 'dark');
+                colorSwitch.checked = false;
+            }
+        }
+        
+        function cambiaTema(ev){
+            if(ev.target.checked){
+                document.documentElement.setAttribute('data-tema', 'light');
+                localStorage.setItem('tema', 'light');
+            } else {
+                document.documentElement.setAttribute('data-tema', 'dark');
+                localStorage.setItem('tema', 'dark');
+            }
+        }
+        
+        cargarTema();
+        
+        colorSwitch.addEventListener('change', cambiaTema);
+    </script>
 </body>
 </html>

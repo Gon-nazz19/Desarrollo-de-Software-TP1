@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-tema="dark">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Experiencia de trabajo" content="Comento que experiencias tengo en antiguos empleos">
-    <title>Experiencias</title>
+    <title>Experiencias - Gonzalo Nazzetta</title>
     <link rel="stylesheet" href="../CSS/Styles_general.css">
     <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=DM+Serif+Text:ital@0;1">
 </head>
 <body>
     <header> 
-
+        <div class="row">
+            <div class="col text-center">
+                <label id="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        
         <div class="Perfil">
             <img id='Foto_Perfil' src="../Imágenes/Foto Perfil.jpg" alt="Foto de Gonzalo Nazzetta">
             <h1><strong>Gonzalo Nazzetta</strong></h1>
@@ -22,37 +31,55 @@
                     <li><a href="../HTML/sobremí.html">Sobre Mí</a></li>
                     <li><a href="../HTML/Habilidades.html">Habilidades y Herramientas</a></li>
                     <li><a href="../HTML/Experiencia.html">Experiencia</a></li>
-                    <li><a href="../HTML/Proyectos.html">Proyectos</a></li> 
                     <li><a href="../HTML/Formulario_de_Contacto.html">Contáctame</a></li>                    
                 </ul>
             </nav>
         </div>
     </header>
     
-    <h1>Experiencias</h1>
+    <main>
+        <h1>Experiencias</h1>
 
-    <div>
-        <h2>Científico de Datos en Sector Financiero</h2>
-        <p>Empresa: FinTech Innovate</p>
-        <p>Período: Marzo 2023- Diciembre 2023</p>
-        <p>Descripción: Lideré un equipo de análisis de datos para desarrollar modelos de riesgo 
-            crediticio basados en aprendizaje automático. Los modelos predecían la probabilidad de 
-            incumplimiento de préstamos con una precisión del 92%. Además, diseñé una solución de 
-            recomendación de productos financieros personalizada utilizando técnicas de segmentación 
-            de clientes y análisis de comportamiento, lo que aumentó la retención de clientes en un 10%.</p>
-    </div>
+        <div>
+            <h2>Desarrollo de un modelo predictivo</h2>
+            <p><strong>Empresa:</strong> UTN San Francisco</p>
+            <p><strong>Período:</strong> Marzo 2024 - Actualidad - Categoría G(inicial)</p>
+            <p>
+                <strong>Descripción:</strong> Por una propuesta inicial de un profesor de la UTN de Córdoba, 
+                llevamos adelante el desarrollo de un modelo predictivo sobre la producción fotovoltáica de
+                los paneles solares de Cba. Para ello, utilizamos herramientas como Python y Excel (en donde se encontraban
+                almacenados los datos). 
+                Los modelos que utilizamos fueron: 
+            </p>
+            <ul>
+                <li>Sarimax</li>
+                <li>ARIMA</li>
+                <li>LSTM</li>
+                <li>Holt-Winter</li>
+            </ul>
+        </div>
 
-    <div>
-        <h2>Analista de Datos en Proyecto de Energía Renovable</h2>
-        <p>Empresa: Energía Verde S.A.</p>
-        <p>Período: Enero 2024 - Actualidad</p>
-        <p>Descripción: Diseñé y desarrollé la infraestructura backend de un sistema de monitoreo de 
-            redes de energía renovable. Implementé microservicios en Node.js que procesaban datos en 
-            tiempo real de sensores distribuidos en diferentes plantas solares y eólicas. También 
-            integré algoritmos de machine learning para optimizar la distribución de energía, 
-            mejorando la eficiencia del sistema en un 15%. Además, desarrollé APIs RESTful que 
-            permitían a los usuarios interactuar con los datos a través de un dashboard visual.</p>
-    </div>
+        <div>
+            <h2>Participación en un laboratorio de estadística</h2>
+            <p><strong>Empresa:</strong> UTN San Francisco</p>
+            <p><strong>Período:</strong> Agosto 2024 - Actualidad</p>
+            <p>
+                <strong>Descripción:</strong> Desempeño una tarea como investigador, en dónde se llevan a cabo actividades
+                de análisis estadístico, desarrollo de apps y otras actividades que nos van solicitando las diferentes 
+                áreas de nuestra Facultad 
+            </p>
+        </div>
+        
+        <div>
+            <h2>Tutor de Álgebra y Geometría Analítica</h2>
+            <p><strong>Empresa:</strong> UTN San Francisco</p>
+            <p><strong>Período:</strong> Ciclo lectivo 2024</p>
+            <p>
+                <strong>Descripción:</strong> En el año 2024 la facultad me permitió dar las tutorías de álgebra y geometría analítica,
+                esta la llevé a cabo con un compañero. Nos encargábamos de brindarle apoyo a los estudiantes de esta cátedra con modelos parcial, clases consulta, entre otras.
+            </p>
+        </div>
+    </main>
 
     <footer>
         <div id="Red_Social">
@@ -73,12 +100,39 @@
 
         <div id="Contacto">
             <h3>Gonzalo Nicolás Nazzetta</h3>
-            <p>Suipacha 655</p>
             <p>Freyre-Córdoba</p>
             <p>+54 9 3564-624931</p>
         </div>
         
     </footer>
 
+    <script>
+        const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
+        
+        function cargarTema() {
+            const temaGuardado = localStorage.getItem('tema');
+            if (temaGuardado === 'light') {
+                document.documentElement.setAttribute('data-tema', 'light');
+                colorSwitch.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-tema', 'dark');
+                colorSwitch.checked = false;
+            }
+        }
+        
+        function cambiaTema(ev){
+            if(ev.target.checked){
+                document.documentElement.setAttribute('data-tema', 'light');
+                localStorage.setItem('tema', 'light');
+            } else {
+                document.documentElement.setAttribute('data-tema', 'dark');
+                localStorage.setItem('tema', 'dark');
+            }
+        }
+        
+        cargarTema();
+        
+        colorSwitch.addEventListener('change', cambiaTema);
+    </script>
 </body>
 </html>

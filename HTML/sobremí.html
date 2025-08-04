@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-tema="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sobre Mí - Gonzalo Nazzetta</title>
     <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=DM+Serif+Text:ital@0;1">
     <link rel="stylesheet" href="../CSS/Styles_general.css">
 </head>
 <body>
     <header>
+        <div class="row">
+            <div class="col text-center">
+                <label id="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        
         <div class="Perfil">
             <img id='Foto_Perfil' src="../Imágenes/Foto Perfil.jpg" alt="Foto de Gonzalo Nazzetta">
             <h1><strong>Gonzalo Nazzetta</strong></h1>
@@ -21,35 +30,36 @@
                     <li><a href="../HTML/sobremí.html">Sobre Mí</a></li>
                     <li><a href="../HTML/Habilidades.html">Habilidades y Herramientas</a></li>
                     <li><a href="../HTML/Experiencia.html">Experiencia</a></li>
-                    <li><a href="../HTML/Proyectos.html">Proyectos</a></li>
                     <li><a href="../HTML/Formulario_de_Contacto.html">Contáctame</a></li>                     
                 </ul>
             </nav>
         </div>
     </header>
 
-    <h1>Un poco sobre mí</h1>
-    <div>
-        <h2>Quien soy</h2>
-        <p>
-            Soy un Científico de datos que con varios años de experiencia, encargado de recopilar, analizar y limpiar 
-            grandes cantidades de datos, para luego desarrollar e implementar diferentes soluciones y modelos de aprendizaje para 
-            lograr una toma de decisiones.
-        </p>
-    </div>
+    <main>
+        <h1>Un poco sobre mí</h1>
+        <div>
+            <h2>Quien soy</h2>
+            <p>
+                Soy un Científico de datos que con varios años de experiencia, encargado de recopilar, analizar y limpiar 
+                grandes cantidades de datos, para luego desarrollar e implementar diferentes soluciones y modelos de aprendizaje para 
+                lograr una toma de decisiones.
+            </p>
+        </div>
 
-    <div>
-        <h2>Actividades extracurriculares</h2>
-        <p>Soy beneficiario del grupo scout, donde aprendí a interactuar con las personas y trabajar en equipo; 
-            hago deportes como fútbol donde aprendí a trabajar mejor en equipo para lograr grandes objetivos.
-        </p>
-    </div>
-    <div>
-        <h2>Pasatiempos fevoritos</h2>
-        <p>Los fines de semanas me gusta mucho jugar videojuegos (Ahí aprendí gran parte de mi vocabulario en inglés),
-            me gusta mucho leer libros y viajar.
-        </p>
-    </div>
+        <div>
+            <h2>Actividades extracurriculares</h2>
+            <p>Soy beneficiario del grupo scout, donde aprendí a interactuar con las personas y trabajar en equipo; 
+                hago deportes como fútbol donde aprendí a trabajar mejor en equipo para lograr grandes objetivos.
+            </p>
+        </div>
+        <div>
+            <h2>Pasatiempos favoritos</h2>
+            <p>Los fines de semanas me gusta mucho jugar videojuegos (Ahí aprendí gran parte de mi vocabulario en inglés),
+                me gusta mucho leer libros y viajar.
+            </p>
+        </div>
+    </main>
 
     <footer>
         <div id="Red_Social">
@@ -70,11 +80,38 @@
 
         <div id="Contacto">
             <h3>Gonzalo Nicolás Nazzetta</h3>
-            <p>Suipacha 655</p>
             <p>Freyre-Córdoba</p>
             <p>+54 9 3564-624931</p>
         </div>
         
     </footer>
+    
+    <script>
+        const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
+        function cargarTema() {
+            const temaGuardado = localStorage.getItem('tema');
+            if (temaGuardado === 'light') {
+                document.documentElement.setAttribute('data-tema', 'light');
+                colorSwitch.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-tema', 'dark');
+                colorSwitch.checked = false;
+            }
+        }
+        
+        function cambiaTema(ev){
+            if(ev.target.checked){
+                document.documentElement.setAttribute('data-tema', 'light');
+                localStorage.setItem('tema', 'light');
+            } else {
+                document.documentElement.setAttribute('data-tema', 'dark');
+                localStorage.setItem('tema', 'dark');
+            }
+        }
+        
+        cargarTema();
+        
+        colorSwitch.addEventListener('change', cambiaTema);
+    </script>
 </body>
 </html>

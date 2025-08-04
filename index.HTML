@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-tema="dark">
 
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="Perfil Gonzalo Nazzetta" content="Incluye una breve presentación presentación">
         <title>Perfil Gonzalo Nazzetta</title>
         <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=DM+Serif+Text:ital@0;1">
@@ -10,30 +11,15 @@
     </head>
 
     <body>
-
         <header> 
-
-            
-        <div class="row">
-            <div class="col text-center">
-                <label id="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
+            <div class="row">
+                <div class="col text-center">
+                    <label id="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
             </div>
-        </div>
-
-        <script>
-            const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
-            function cambiaTema(ev){
-                if(ev.target.checked){
-                    document.documentElement.setAttribute('tema', 'light');
-                } else {
-                    document.documentElement.setAttribute('tema', 'dark');
-                }
-            }
-            colorSwitch.addEventListener('change', cambiaTema);
-        </script>
 
             <div class="Perfil">
                 <img id='Foto_Perfil' src="Imágenes/Foto Perfil.jpg" alt="Foto de Gonzalo Nazzetta">
@@ -44,16 +30,36 @@
             <div>
                 <nav>
                     <ul>
-                        <li><a href="../TP1/index.HTML">Inicio</a></li>
+                        
+                        <li><a href="index.HTML">Inicio</a></li>
                         <li><a href="HTML/sobremí.html">Sobre Mí</a></li>
                         <li><a href="HTML/Habilidades.html">Habilidades y Herramientas</a></li>
                         <li><a href="HTML/Experiencia.html">Experiencia</a></li>
-                        <li><a href="HTML/Proyectos.html">Proyectos</a></li>     
                         <li><a href="HTML/Formulario_de_Contacto.html">Contáctame</a></li>               
                     </ul>
                 </nav>
             </div>
         </header>
+
+        <div>
+            <h1>Hola, soy Gonzalo Nazzetta</h1>
+            <p>
+                Soy un científico de datos especializado en la recopilación, análisis y limpieza de datos, 
+                y en la creación de modelos predictivos y de clasificación. 
+            </p>
+            <p>Me gusta un poco la programación y la tecnología, y me gusta mucho aprender nuevas cosas. 
+                Me gusta mucho el deporte, la música, la lectura y Scout.</p>
+        </div>
+
+        <div>
+            <h1>Objetivo Personal</h1>
+            <p>
+                Como estudiante universitario comprometido con mi desarrollo profesional, busco una
+                oportunidad para dar mis primeros pasos en la profesión, adquirir nuevos aprendizajes y
+                conocimientos para afianzarme como futuro Ingeniero en Sistemas y contribuir a mi
+                progreso personal.
+            </p>
+        </div>
 
         <footer>
             <div id="Red_Social">
@@ -74,11 +80,39 @@
 
             <div id="Contacto">
                 <h3>Gonzalo Nicolás Nazzetta</h3>
-                <p>Suipacha 655</p>
                 <p>Freyre-Córdoba</p>
                 <p>+54 9 3564-624931</p>
             </div>
             
         </footer>
+
+        <script>
+            const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
+            
+            
+            function cargarTema() {
+                const temaGuardado = localStorage.getItem('tema');
+                if (temaGuardado === 'light') {
+                    document.documentElement.setAttribute('data-tema', 'light');
+                    colorSwitch.checked = true;
+                } else {
+                    document.documentElement.setAttribute('data-tema', 'dark');
+                    colorSwitch.checked = false;
+                }
+            }
+            
+            function cambiaTema(ev){
+                if(ev.target.checked){
+                    document.documentElement.setAttribute('data-tema', 'light');
+                    localStorage.setItem('tema', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-tema', 'dark');
+                    localStorage.setItem('tema', 'dark');
+                }
+            }
+            
+            cargarTema();
+            colorSwitch.addEventListener('change', cambiaTema);
+        </script>
     </body>
 </html>
